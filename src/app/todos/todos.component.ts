@@ -35,10 +35,16 @@ export class TodosComponent implements OnInit {
     try {
       client.models.Todo.create({
         content: window.prompt('Todo content'),
+        firstname: window.prompt('First Name')
       });
       this.listTodos();
     } catch (error) {
       console.error('error creating todos', error);
     }
+  }
+
+    
+  deleteTodo(id: string) {
+    client.models.Todo.delete({ id })
   }
 }
